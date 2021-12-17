@@ -1,0 +1,45 @@
+<script>
+    function reqListener () {
+        // console.log(this.responseText);
+        // alert(this.responseText);
+        // alert(JSON.parse(this.responseText));
+    }
+ function resListener () {
+    console.log(this.responseText);
+    // alert(this.responseText);
+    // alert(JSON.parse(this.responseText));
+}
+    
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "/api");
+oReq.send();
+
+function post(){
+    var oReq = new XMLHttpRequest();
+
+    oReq.addEventListener("load", resListener);
+     oReq.open("POST", "/api");
+     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//   oReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    //  oReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    let val = {[document.querySelector('#a').value]: 
+     document.querySelector('#b').value
+    };
+      val = document.querySelector('#a').value +'='+
+     document.querySelector('#b').value
+     console.log(val);
+        oReq.send(val);
+
+    // oReq.send(JSON.stringify(val));
+}
+</script>
+     <input id="a"/>
+    <input id="b"/>
+    <button onclick="post()">post</button>
+ <div>
+    
+    asf asfd sdf asf
+</div>
